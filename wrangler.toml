@@ -10,3 +10,11 @@ custom_domain = true
 [assets]
 directory = "."
 binding = "ASSETS"
+run_worker_first = ["/presence"]
+
+[durable_objects]
+bindings = [{ name = "ABOUT_PRESENCE_ROOM", class_name = "AboutPresenceRoom" }]
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["AboutPresenceRoom"]

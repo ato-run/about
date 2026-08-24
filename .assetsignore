@@ -5,3 +5,5 @@
 README.md
 worker.js
 wrangler.toml
+src/
+tests/
