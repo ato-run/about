@@ -26,6 +26,7 @@
       margin: 0;
       color: var(--ink);
       background: var(--paper);
+      position: relative;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
       -webkit-font-smoothing: antialiased;
     }
@@ -161,6 +162,82 @@
     .btn-secondary { background:#fff; border-color:var(--line); color:var(--ink); }
     .btn-secondary:hover { border-color:var(--ink); }
     .hero-note { margin-top:12px; font-size:12px; color:var(--muted); }
+
+    #live-presence-layer {
+      position: absolute;
+      inset: 0;
+      z-index: 35;
+      min-height: 100%;
+      pointer-events: none;
+      overflow: visible;
+    }
+    .presence-cursor {
+      --presence-color: #c54868;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 0;
+      height: 0;
+      pointer-events: none;
+      transform: translate3d(-100px, -100px, 0);
+      transition: transform 120ms linear;
+    }
+    .presence-pointer {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 16px;
+      height: 21px;
+      background: var(--presence-color);
+      clip-path: polygon(0 0, 0 100%, 30% 72%, 45% 100%, 57% 94%, 42% 66%, 100% 66%);
+      filter: drop-shadow(0 2px 3px rgba(20,24,31,.22));
+    }
+    .presence-label {
+      position: absolute;
+      top: 10px;
+      left: 14px;
+      max-width: min(250px, calc(100vw - 28px));
+      overflow: hidden;
+      padding: 6px 8px;
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 8px;
+      background: rgba(20,24,31,.91);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 600;
+      line-height: 1.15;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      box-shadow: 0 6px 18px rgba(20,24,31,.14);
+      opacity: .45;
+      transition: opacity .18s ease;
+    }
+    .presence-cursor.is-active .presence-label { opacity: 1; }
+    .presence-cursor--flip .presence-label { left: auto; right: 14px; }
+    .presence-cursor--above .presence-label { top: auto; bottom: 10px; }
+    .hero-presence {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .presence-status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #20a46b;
+      box-shadow: 0 0 0 4px rgba(32,164,107,.1);
+    }
+    .hero-presence-note {
+      max-width: 440px;
+      margin: 9px auto 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
 
     .demo { padding:34px 0 88px; }
     .demo-card {
@@ -584,10 +661,12 @@
     }
     @media (prefers-reduced-motion: reduce) {
       * { scroll-behavior:auto !important; transition:none !important; }
+      .presence-cursor { transition:none !important; }
     }
   </style>
 </head>
 <body>
+  <div id="live-presence-layer" aria-hidden="true"></div>
   <header>
     <div class="wrap nav">
       <a class="brand" href="https://ato.run" aria-label="ato.run home">
@@ -609,7 +688,7 @@
   </header>
 
   <main>
-    <section class="hero" aria-labelledby="hero-title">
+    <section class="hero" data-presence-region="hero" aria-labelledby="hero-title">
       <span class="orb one"></span><span class="orb two"></span>
       <div class="hero-inner">
         <h1 id="hero-title">
@@ -621,10 +700,15 @@
         <div class="hero-actions">
           <a class="btn btn-primary" href="https://ato.run">See what's happening <span>↗</span></a>
         </div>
+        <div class="hero-presence" role="status" aria-live="polite">
+          <span class="presence-status-dot" aria-hidden="true"></span>
+          <span id="presence-count">Connecting…</span>
+        </div>
+        <p class="hero-presence-note">You’re seeing people who are here with you. Ato brings that sense of presence into software.</p>
       </div>
     </section>
 
-    <section class="demo" id="demo" aria-label="A shared software activity demo">
+    <section class="demo" id="demo" data-presence-region="demo" aria-label="A shared software activity demo">
       <div class="wrap">
         <div class="demo-card">
           <div class="demo-head">
@@ -648,7 +732,7 @@
       </div>
     </section>
 
-    <section id="together">
+    <section id="together" data-presence-region="together">
       <div class="wrap">
         <div class="section-head together-head">
           <h2>Find something already in motion.</h2>
@@ -674,7 +758,7 @@
       </div>
     </section>
 
-    <section id="build">
+    <section id="build" data-presence-region="build">
       <div class="wrap">
         <div class="section-head">
           <h2>What we build</h2>
@@ -686,7 +770,7 @@
       </div>
     </section>
 
-    <section class="try" id="try" aria-labelledby="try-title">
+    <section class="try" id="try" data-presence-region="try" aria-labelledby="try-title">
       <div class="wrap">
         <div class="section-head">
           <h2 id="try-title">Try what’s already happening.</h2>
@@ -771,7 +855,7 @@
       </div>
     </section>
 
-    <section id="behind" aria-labelledby="behind-title">
+    <section id="behind" data-presence-region="behind" aria-labelledby="behind-title">
       <div class="wrap">
         <div class="section-head">
           <h2 id="behind-title">Behind Capsule</h2>
@@ -884,7 +968,7 @@
       </div>
     </section>
 
-    <section class="cta" id="start">
+    <section class="cta" id="start" data-presence-region="start">
       <div class="wrap">
         <h2>Start from somewhere interesting.</h2>
         <p>See what people and AI are doing, then pick up a software activity that is already in motion.</p>
@@ -894,7 +978,7 @@
       </div>
     </section>
 
-    <section class="creator-cta" id="waitlist" aria-labelledby="creator-cta-title">
+    <section class="creator-cta" id="waitlist" data-presence-region="waitlist" aria-labelledby="creator-cta-title">
       <div class="wrap">
         <div class="creator-card">
           <div>
@@ -935,6 +1019,7 @@
     </div>
   </footer>
 
+  <script src="presence.js"></script>
   <script>
     (() => {
       const el = document.getElementById('partner');
