@@ -1,7 +1,7 @@
 // Hero background: a slowly rotating, floating field of cubes.
 // Ported from ato-web's HeroThreeAnimation.tsx (Three.js), without the
 // GSAP assemble intro — the perpetual rotate + float is the background effect.
-import * as THREE from "../assets/vendor/three.module.min.js";
+import * as THREE from "./vendor/three.module.min.js";
 
 (() => {
   const container = document.querySelector(".hero-cube");
