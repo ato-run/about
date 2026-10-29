@@ -675,6 +675,12 @@
       .footer-groups { grid-template-columns:repeat(3,1fr); gap:14px; }
       .footer-group a { font-size:12px; }
     }
+    .feature-card .demo-label { align-self:flex-start; margin-bottom:14px; }
+    .status-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+    .status-card { padding:24px; border:1px solid var(--line); border-radius:var(--radius); background:#fff; box-shadow:var(--shadow); }
+    .status-card h3 { margin:0; font-size:15px; letter-spacing:-.01em; }
+    .status-card p { margin:10px 0 0; color:var(--muted); font-size:13px; line-height:1.6; }
+    @media (max-width: 760px) { .status-grid { grid-template-columns:1fr; } }
     @media (prefers-reduced-motion: reduce) {
       * { scroll-behavior:auto !important; transition:none !important; }
       .presence-cursor { transition:none !important; }
@@ -695,7 +701,7 @@
       <nav class="navlinks" aria-label="Primary">
         <a href="https://ato.run">Explore</a>
         <a href="#demo">Demo</a>
-        <a href="#together">Together</a>
+        <a href="#together">In development</a>
         <a href="#build">What we build</a>
         <a href="#behind">Behind Capsule</a>
       </nav>
@@ -708,29 +714,27 @@
       <span class="orb one"></span><span class="orb two"></span>
       <div class="hero-cube" aria-hidden="true"></div>
       <div class="hero-inner">
-        <h1 id="hero-title">
-          <span class="dynamic-line">Work with <span id="partner"><span class="partner-slot" aria-hidden="true">You.</span><span class="partner-text">Alice.</span></span></span>
-        </h1>
+        <h1 id="hero-title">Try software.<br>Keep your own copy.</h1>
         <p>
-          Pick up software exactly where someone—or AI—left off.
+          Browse open-source apps, games, and tools on ato.run, try them in your browser, and save a copy to your Library.
         </p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="https://ato.run">See what's happening <span>↗</span></a>
+          <a class="btn btn-primary" href="https://ato.run">Open ato.run <span>↗</span></a>
         </div>
         <div class="hero-presence" role="status" aria-live="polite">
           <span class="presence-status-dot" aria-hidden="true"></span>
           <span id="presence-count">Connecting…</span>
         </div>
-        <p class="hero-presence-note">You’re seeing people who are here with you. Ato brings that sense of presence into software.</p>
+        <p class="hero-presence-note">This page shows live visitor presence. Shared sessions inside an app are in development.</p>
       </div>
     </section>
 
-    <section class="demo" id="demo" data-presence-region="demo" aria-label="A shared software activity demo">
+    <section class="demo" id="demo" data-presence-region="demo" aria-label="A concept demo of a shared software session, in development">
       <div class="wrap">
         <div class="demo-card">
           <div class="demo-head">
             <span class="demo-label">Demo</span>
-            <span class="demo-note">One world. Two players.</span>
+            <span class="demo-note">Concept · one world, two players</span>
           </div>
           <div class="demo-poster">
             <img src="assets/browserquest-poster.png" alt="Two players exploring the same pixel-art game world from separate screens." />
@@ -744,7 +748,7 @@
             </div>
             <span class="demo-play" aria-hidden="true"><span class="demo-play-icon">▶</span></span>
           </div>
-          <p class="demo-caption">Two different screens. One shared software activity.</p>
+          <p class="demo-caption">In development: two people sharing one software session from different screens.</p>
         </div>
       </div>
     </section>
@@ -752,22 +756,24 @@
     <section id="together" data-presence-region="together">
       <div class="wrap">
         <div class="section-head together-head">
-          <h2>Find something already in motion.</h2>
-          <p>Discover an activity by what people are doing, then decide whether to play, explore, or make it your own.</p>
+          <h2>Try it, then keep it.</h2>
+          <p>Discover open-source apps by category, open one in your browser, and add your own copy to Library. Starting from someone else's session is in development.</p>
         </div>
       </div>
       <div class="wrap pair">
         <article class="feature-card ai">
-          <h3>Don’t just ask AI.<br>Work with it.</h3>
-          <p>Share the same workspace with AI. Build, explore, and move the work forward together.</p>
+          <span class="demo-label">In development</span>
+          <h3>Work with an AI participant.</h3>
+          <p>Sharing one workspace with an AI participant is in development. It is not available in ato.run today.</p>
           <div class="diagram generated-diagram" aria-hidden="true">
             <img class="explanatory-image" src="assets/explain-together-ai.png" alt="" />
           </div>
         </article>
 
         <article class="feature-card friend">
-          <h3>Play with your friend.</h3>
-          <p>Jump into the same software experience and do something together, from wherever you are.</p>
+          <span class="demo-label">In development</span>
+          <h3>Play with a friend.</h3>
+          <p>Two people sharing one software session is in development. It is not available in ato.run today.</p>
           <div class="diagram generated-diagram" aria-hidden="true">
             <img class="explanatory-image" src="assets/explain-together-friend.png" alt="" />
           </div>
@@ -790,34 +796,12 @@
     <section class="try" id="try" data-presence-region="try" aria-labelledby="try-title">
       <div class="wrap">
         <div class="section-head">
-          <h2 id="try-title">Try what’s already happening.</h2>
-          <p>Open a software activity, see the state someone left behind, and decide what to do next.</p>
+          <h2 id="try-title">Try what’s already here.</h2>
+          <p>Open an app from Discover, try it in your browser, and add your own copy to Library.</p>
         </div>
         <div class="capsules">
           <article class="capsule-card">
-            <a class="capsule-card-main" href="https://ato.run" aria-label="Open Open the gate together on ato.run">
-              <div class="capsule-media capsule-media--poster">
-                <img src="assets/browserquest-poster.png" alt="" />
-              </div>
-              <div class="capsule-info">
-                <div class="capsule-card-title-row">
-                  <span class="capsule-card-app-icon capsule-card-app-icon--pink" aria-hidden="true">B</span>
-                  <span class="capsule-card-name">Open the gate together</span>
-                </div>
-                <p class="capsule-card-activity"><strong>BrowserQuest</strong> · Play</p>
-                <div class="capsule-card-meta"><span>1,284 runs</span><span class="meta-dot">·</span><span>24 comments</span></div>
-              </div>
-            </a>
-            <div class="capsule-card-actions">
-              <button class="capsule-share" type="button" data-share data-share-title="Open the gate together" data-share-url="https://ato.run" aria-label="Share Open the gate together">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="m8.2 10.8 7.6-4.5M8.2 13.2l7.6 4.5"/></svg>
-                <span>Share</span>
-              </button>
-            </div>
-          </article>
-
-          <article class="capsule-card">
-            <a class="capsule-card-main" href="https://ato.run" aria-label="Open Make the next move on ato.run">
+            <a class="capsule-card-main" href="https://ato.run/?view=discover&amp;detail=discover%3Adiscover-2048" aria-label="Open 2048 on ato.run">
               <div class="capsule-media capsule-media--board">
                 <div class="board" aria-hidden="true">
                   <div class="tile">2</div><div class="tile">4</div><div class="tile">2</div><div class="tile">4</div>
@@ -829,14 +813,13 @@
               <div class="capsule-info">
                 <div class="capsule-card-title-row">
                   <span class="capsule-card-app-icon capsule-card-app-icon--orange" aria-hidden="true">2</span>
-                  <span class="capsule-card-name">Make the next move</span>
+                  <span class="capsule-card-name">2048</span>
                 </div>
-                <p class="capsule-card-activity"><strong>2048</strong> · Explore</p>
-                <div class="capsule-card-meta"><span>8,492 runs</span><span class="meta-dot">·</span><span>71 comments</span></div>
+                <p class="capsule-card-activity"><strong>Games</strong> · Play in the browser</p>
               </div>
             </a>
             <div class="capsule-card-actions">
-              <button class="capsule-share" type="button" data-share data-share-title="Make the next move" data-share-url="https://ato.run" aria-label="Share Make the next move">
+              <button class="capsule-share" type="button" data-share data-share-title="2048" data-share-url="https://ato.run/?view=discover&amp;detail=discover%3Adiscover-2048" aria-label="Share 2048">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="m8.2 10.8 7.6-4.5M8.2 13.2l7.6 4.5"/></svg>
                 <span>Share</span>
               </button>
@@ -844,7 +827,7 @@
           </article>
 
           <article class="capsule-card">
-            <a class="capsule-card-main" href="https://ato.run" aria-label="Open Turn this sketch into something on ato.run">
+            <a class="capsule-card-main" href="https://ato.run/?view=discover&amp;detail=discover%3Adapp_01M4Z5AAPG7CPC2R5E0ESB648H" aria-label="Open excalidraw on ato.run">
               <div class="capsule-media capsule-media--draw">
                 <svg viewBox="0 0 260 160" fill="none" aria-hidden="true">
                   <circle cx="199" cy="34" r="13" fill="#c4621f" opacity=".7"/>
@@ -855,14 +838,34 @@
               <div class="capsule-info">
                 <div class="capsule-card-title-row">
                   <span class="capsule-card-app-icon capsule-card-app-icon--blue" aria-hidden="true">✦</span>
-                  <span class="capsule-card-name">Turn this sketch into something</span>
+                  <span class="capsule-card-name">excalidraw</span>
                 </div>
-                <p class="capsule-card-activity"><strong>Drawing Board</strong> · Create</p>
-                <div class="capsule-card-meta"><span>624 runs</span><span class="meta-dot">·</span><span>13 comments</span></div>
+                <p class="capsule-card-activity"><strong>Tools</strong> · Run in the browser</p>
               </div>
             </a>
             <div class="capsule-card-actions">
-              <button class="capsule-share" type="button" data-share data-share-title="Turn this sketch into something" data-share-url="https://ato.run" aria-label="Share Turn this sketch into something">
+              <button class="capsule-share" type="button" data-share data-share-title="excalidraw" data-share-url="https://ato.run/?view=discover&amp;detail=discover%3Adapp_01M4Z5AAPG7CPC2R5E0ESB648H" aria-label="Share excalidraw">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="m8.2 10.8 7.6-4.5M8.2 13.2l7.6 4.5"/></svg>
+                <span>Share</span>
+              </button>
+            </div>
+          </article>
+
+          <article class="capsule-card">
+            <a class="capsule-card-main" href="https://ato.run/?view=discover&amp;detail=discover%3Adiscover-portable-memos" aria-label="Open Memos on ato.run">
+              <div class="capsule-media capsule-media--poster">
+                <img src="assets/memos-card.png" alt="Memos memo list" />
+              </div>
+              <div class="capsule-info">
+                <div class="capsule-card-title-row">
+                  <span class="capsule-card-app-icon capsule-card-app-icon--pink" aria-hidden="true">M</span>
+                  <span class="capsule-card-name">Memos</span>
+                </div>
+                <p class="capsule-card-activity"><strong>Apps</strong> · 5-minute Try</p>
+              </div>
+            </a>
+            <div class="capsule-card-actions">
+              <button class="capsule-share" type="button" data-share data-share-title="Memos" data-share-url="https://ato.run/?view=discover&amp;detail=discover%3Adiscover-portable-memos" aria-label="Share Memos">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="m8.2 10.8 7.6-4.5M8.2 13.2l7.6 4.5"/></svg>
                 <span>Share</span>
               </button>
@@ -876,7 +879,7 @@
       <div class="wrap">
         <div class="section-head">
           <h2 id="behind-title">Behind Capsule</h2>
-          <p>A Capsule is more than a snapshot. It preserves the parts that make an activity continue, while keeping external resources replaceable.</p>
+          <p>Ato is experimental. A Capsule is more than a snapshot. It preserves the parts that make an activity continue, while keeping external resources replaceable.</p>
         </div>
 
         <div class="behind-shell">
@@ -985,12 +988,35 @@
       </div>
     </section>
 
+    <section id="status" data-presence-region="status" aria-labelledby="status-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="status-title">Development status</h2>
+          <p>Ato is experimental. What you can use today is listed separately from what is still being built.</p>
+        </div>
+        <div class="status-grid">
+          <article class="status-card">
+            <h3>Available now</h3>
+            <p>Browse and try public software on ato.run; add a copy to Library; build the CLI and run the static example.</p>
+          </article>
+          <article class="status-card">
+            <h3>In development</h3>
+            <p>Shared two-player sessions, AI participation, and presence inside software. Portable application contracts and verification across execution paths.</p>
+          </article>
+          <article class="status-card">
+            <h3>Research directions</h3>
+            <p>General recovery across different hosts, process-memory restoration, and autonomous AI Formation are not generally available capabilities.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="cta" id="start" data-presence-region="start">
       <div class="wrap">
-        <h2>Start from somewhere interesting.</h2>
-        <p>See what people and AI are doing, then pick up a software activity that is already in motion.</p>
+        <h2>Start with an app.</h2>
+        <p>Browse open-source software on ato.run, try it in your browser, and keep a copy in your Library.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="https://ato.run">See what's happening <span>↗</span></a>
+          <a class="btn btn-primary" href="https://ato.run">Open ato.run <span>↗</span></a>
         </div>
       </div>
     </section>
@@ -999,10 +1025,10 @@
       <div class="wrap">
         <div class="creator-card">
           <div>
-            <h3 id="creator-cta-title">Want to make an activity people can pick up?</h3>
-            <p>Join the creator waitlist and learn how to turn software into a shareable Capsule.</p>
+            <h3 id="creator-cta-title">Follow what's next.</h3>
+            <p>Pro and Managed Cloud are planned. Joining the waitlist does not start billing or grant access today.</p>
           </div>
-          <a class="btn btn-secondary" href="https://ato.run/#route=%2F&waitlist=cloud&waitlist_source=ato_web">Join creator waitlist <span aria-hidden="true">↗</span></a>
+          <a class="btn btn-secondary" href="https://ato.run/#route=%2F&waitlist=cloud&waitlist_source=ato_web">Join the Pro waitlist <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>
@@ -1017,7 +1043,7 @@
       <div class="footer-groups">
         <div class="footer-group">
           <h2>Explore</h2>
-          <ul><li><a href="https://ato.run">Home</a></li><li><a href="#demo">Demo</a></li><li><a href="#try">Capsules</a></li></ul>
+          <ul><li><a href="https://ato.run">Home</a></li><li><a href="#demo">Demo</a></li><li><a href="#try">Apps</a></li></ul>
         </div>
         <div class="footer-group">
           <h2>Policies</h2>
@@ -1025,7 +1051,7 @@
         </div>
         <div class="footer-group">
           <h2>Legal</h2>
-          <ul><li><a href="mailto:kohsuke@ato.run">Contact</a></li><li><a href="https://ato.run/legal/tokushoho/">特定商取引法に基づく表記</a></li><li><a href="#waitlist">Creators</a></li></ul>
+          <ul><li><a href="mailto:kohsuke@ato.run">Contact</a></li><li><a href="https://ato.run/legal/tokushoho/">特定商取引法に基づく表記</a></li><li><a href="#waitlist">Pro waitlist</a></li></ul>
         </div>
       </div>
       <p class="footer-copy">© 2026 ato.run · Software experiences people can pick up and continue.</p>
@@ -1038,97 +1064,5 @@
 
   <script src="presence.js"></script>
   <script type="module" src="assets/hero-cube.js"></script>
-  <script>
-    (() => {
-      const el = document.getElementById('partner');
-      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (!el) return;
-      const text = el.querySelector('.partner-text');
-
-      if (reduced) {
-        text.textContent = 'You.';
-        text.classList.add('done');
-        return;
-      }
-
-      const names = [
-        'Alice.', 'Claude.', 'Alex.', 'GPT-5.', 'Maya.', 'Gemini.',
-        'Jordan.', 'DeepSeek.', 'Sam.', 'Llama.', 'Emma.', 'Grok.',
-        'Noah.', 'Codex.', 'Sofia.', 'Cursor.', 'Leo.', 'Copilot.',
-        'Ava.', 'You.'
-      ];
-      let i = 0;
-
-      const advance = () => {
-        if (i >= names.length) return;
-
-        const isFinal = i === names.length - 1;
-        if (isFinal) {
-          // Clear the rapid-switching treatment first, then let only "You." arrive slowly.
-          text.classList.remove('switching');
-          text.textContent = names[i];
-          // Force a separate frame so the final fade always starts from its keyframe origin.
-          requestAnimationFrame(() => requestAnimationFrame(() => text.classList.add('done')));
-          return;
-        }
-
-        text.classList.add('switching');
-        setTimeout(() => {
-          text.textContent = names[i];
-          text.classList.remove('switching');
-          i += 1;
-          setTimeout(advance, 58);
-        }, 38);
-      };
-
-      advance();
-    })();
-
-    (() => {
-      const tabs = Array.from(document.querySelectorAll('[data-behind-tab]'));
-      const panels = Array.from(document.querySelectorAll('[data-behind-panel]'));
-
-      const activateBehindPanel = (key) => {
-        tabs.forEach((tab) => {
-          const selected = tab.dataset.behindTab === key;
-          tab.setAttribute('aria-selected', String(selected));
-        });
-        panels.forEach((panel) => {
-          panel.hidden = panel.dataset.behindPanel !== key;
-        });
-      };
-
-      tabs.forEach((tab) => {
-        tab.addEventListener('click', () => activateBehindPanel(tab.dataset.behindTab));
-      });
-
-      document.querySelectorAll('[data-share]').forEach((button) => {
-        button.addEventListener('click', async () => {
-          const title = button.dataset.shareTitle || 'Ato Capsule';
-          const url = button.dataset.shareUrl || 'https://ato.run';
-          const label = button.querySelector('span');
-          const originalLabel = label ? label.textContent : 'Share';
-
-          try {
-            if (typeof navigator.share === 'function') {
-              await navigator.share({ title, url });
-              if (label) label.textContent = 'Shared';
-            } else if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
-              await navigator.clipboard.writeText(url);
-              if (label) label.textContent = 'Copied';
-            } else {
-              window.prompt('Copy this link', url);
-            }
-          } catch {
-            if (label) label.textContent = 'Share';
-          }
-
-          window.setTimeout(() => {
-            if (label) label.textContent = originalLabel;
-          }, 1800);
-        });
-      });
-    })();
-  </script>
 </body>
 </html>
